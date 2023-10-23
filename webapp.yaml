@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-deployment
+  name: webapp-deployment
   labels:
     app: webapp
 spec:
@@ -41,9 +41,9 @@ kind: Service
 metadata:
   name: webapp-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
-    app.kubernetes.io/name: webapp
+    app: webapp
   ports:
     - protocol: TCP
       port: 3000
